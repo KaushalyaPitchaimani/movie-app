@@ -8,7 +8,7 @@ const API_key = "9396cdb682320f99d4335d97dc6f02ce";
 const base_url = "https://api.themoviedb.org/3";
 const initialUrl = `${base_url}/discover/movie?sort_by=popularity.desc&api_key=${API_key}`;
 const arr = ["Popular", "Top Rated", "Upcoming"];
-const itemsPerPage = 5;
+
 
 const Main = () => {
     const [movieData, setData] = useState([]);
@@ -16,6 +16,7 @@ const Main = () => {
     const [search, setSearch] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
+
 
     useEffect(() => {
         fetch(url_set + `&page=${currentPage}`)
@@ -48,11 +49,15 @@ const Main = () => {
     };
 
     const searchMovie = (evt) => {
-        if (evt.key === "Enter") {
+        if (evt.type === "click") {
+
+
             const searchUrl = `${base_url}/search/movie?api_key=${API_key}&query=${search}`;
+
             setUrl(searchUrl);
             setSearch("");
             setCurrentPage(1);
+
 
         }
     };
@@ -66,7 +71,7 @@ const Main = () => {
     return (
         <Router>
             <div className='header'>
-                <Link to="/" className='logo'>MovieDB</Link>
+                <Link to="/" className='logo' onClick={() => setSearchActive(false)}>MovieDB</Link>
                 <div className='nav-container'>
                     <nav>
                         <ul>
@@ -85,9 +90,9 @@ const Main = () => {
                                 className='inputText'
                                 onChange={(e) => setSearch(e.target.value)}
                                 value={search}
-                                onKeyUp={searchMovie}
+
                             />
-                            <button type='button' className='search'>Search</button>
+                            <button type='button' className='search' onClick={searchMovie}>Search</button>
                         </div>
                     </form>
                 </div>
