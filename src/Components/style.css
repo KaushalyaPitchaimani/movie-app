@@ -135,24 +135,6 @@ nav ul li a {
     color: white;
 }
 
-.movie-details .overview {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    max-height: 100%;
-    background-color: var(--secondary-color);
-    opacity: 0.9;
-    color: black;
-    box-sizing: border-box;
-    padding: 1rem;
-    transition: all 0.4s ease-in-out;
-    overflow-y: auto;
-    transform: translateY(101%);
-}
-
-.movie-details:hover .overview {
-    transform: translateY(0%);
-}
 
 .rating {
     color: white;
@@ -173,10 +155,9 @@ nav ul li a {
 p {
     font-size: 12px;
     line-height: 1.5;
-    max-width: 800px;
-    /* Limit the width of the text */
+
     margin: 0 auto;
-    /* Center the text */
+
     padding: 0 20px;
 }
 
@@ -184,7 +165,7 @@ p {
     position: relative;
     width: 100%;
     height: 100vh;
-    /* Full viewport height */
+
     background-size: cover;
     background-position: center;
     color: white;
@@ -195,14 +176,14 @@ p {
 .movie-header {
     display: flex;
     align-items: flex-start;
-    /* Align poster and info to the top */
+
     height: 100%;
     position: relative;
     z-index: 2;
-    /* Ensure it sits above the background image */
+
     padding-left: 40px;
     gap: 20px;
-    /* Add padding on the left */
+
 
 }
 
@@ -210,13 +191,13 @@ p {
     flex: 1;
     position: relative;
     z-index: 3;
-    /* Ensure it's above the backdrop image */
+
     max-width: 400px;
-    /* Limit the width of the movie details */
+
     margin-left: 0px;
     margin-top: 30px;
     background-color: rgba(0, 0, 0, 0.7);
-    /* Add a semi-transparent background to improve readability */
+
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
@@ -225,13 +206,12 @@ p {
 .small-poster {
     width: 100px;
     display: flex;
-    /* Adjust the width as needed */
+
     border-radius: 10px;
     margin-right: 20px;
-    /* Space between poster and movie details */
+
     z-index: 3;
     object-fit: cover;
-    /* Ensure it layers above the background */
 }
 
 .movie-info h2 {
@@ -324,4 +304,47 @@ p {
         width: 200px;
         margin-right: 100px;
     }
+
+    .full-poster {
+        width: 100%;
+        height: 80vh;
+    }
+
+    .movie-info {
+        width: 80%;
+        height: 40vh;
+
+    }
+
+    .small-poster {
+        width: 80px;
+        display: flex;
+
+        border-radius: 1px;
+        margin-right: 2px;
+
+        z-index: 3;
+        object-fit: cover;
+    }
+
+    .movie-info h2 {
+        font-size: 20px;
+        margin-bottom: 2px;
+        color: #ffffff;
+    }
+
+    .movie-info p {
+        font-size: 15px;
+        line-height: 14px;
+        margin-bottom: 2px;
+        color: #cccccc;
+
+    }
+
+    .movie-info .rating {
+        font-weight: bold;
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
 }

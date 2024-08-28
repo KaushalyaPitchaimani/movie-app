@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Card from './Card'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import MovieDetails from './MovieDetails';
 import Pagination from './Pagination';
 
@@ -66,13 +66,13 @@ const Main = () => {
     return (
         <Router>
             <div className='header'>
-                <a href="#" className='logo'>MovieDB</a>
+                <Link to="/" className='logo'>MovieDB</Link>
                 <div className='nav-container'>
                     <nav>
                         <ul>
                             {arr.map((value) => (
                                 <li key={value}>
-                                    <a href="#" name={value} onClick={(e) => getData(e.target.name)}>{value}</a>
+                                    <Link to="/" name={value} onClick={(e) => getData(e.target.name)}>{value}</Link>
                                 </li>
                             ))}
                         </ul>
