@@ -28,16 +28,6 @@ const Main = () => {
             .catch(error => console.error('Error fetching data:', error));
     }, [url_set, currentPage]);
 
-    const getLastMonthRange = () => {
-        const now = new Date();
-        const firstDayLastMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1);
-        const lastDayLastMonth = new Date(now.getFullYear(), now.getMonth(), 0);
-
-        const min_date = firstDayLastMonth.toISOString().split('T')[0]; // YYYY-MM-DD format
-        const max_date = lastDayLastMonth.toISOString().split('T')[0]; // YYYY-MM-DD format
-
-        return { min_date, max_date };
-    };
 
     const getData = (movieType) => {
         let url;
@@ -49,7 +39,7 @@ const Main = () => {
                 url = `${base_url}/discover/movie?sort_by=vote_average.desc&without_genres=99,10755&vote_count.gte=200&api_key=${API_key}`;
                 break;
             case "Upcoming":
-                const { min_date, max_date } = getLastMonthRange();
+
                 url = `${base_url}/discover/movie?sort_by=popularity.desc&with_release_type=2|3&release_date.gte={2024-09-24}&release_date.lte={2025-07-24}&api_key=${API_key}`;
                 break;
             default:
