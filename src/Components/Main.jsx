@@ -38,7 +38,7 @@ const Main = () => {
                 url = `${base_url}/discover/movie?sort_by=vote_average.desc&without_genres=99,10755&vote_count.gte=200&api_key=${API_key}`;
                 break;
             case "Upcoming":
-                url = `${base_url}/discover/movie?sort_by=popularity.desc&with_release_type=2|3&release_date.gte={min_date}&release_date.lte={max_date}&api_key=${API_key}`;
+                url = `${base_url}/discover/movie?sort_by=popularity.asc&with_release_type=2|3&release_date.gte={min_date}&release_date.lte={max_date}&api_key=${API_key}`;
                 break;
             default:
                 url = initialUrl;
